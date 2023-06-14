@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <style>
+        html * {
+            font-size: 16px;
+            color: 2020131;
+            font-family: Roboto;
+        }
+        table, table td {
+            border: 1px solid #cccccc;
+        }
+        td {
+            height: 80px;
+            width: 200px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <table id="cars list" class="table table-bordered" style="width: 80%">
+        <thead>Requested cars list is:</thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td><span th:text="${car.name}"> Name </span></td>
+            <td><span th:text="${car.model}"> Model </span></td>
+            <td><span th:text="${car.horsePower}"> Power </span></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

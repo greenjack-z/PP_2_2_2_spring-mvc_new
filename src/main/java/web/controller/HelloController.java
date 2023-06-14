@@ -1,5 +1,7 @@
 package web.controller;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ public class HelloController {
 		List<String> messages = new ArrayList<>();
 		messages.add("Hello!");
 		messages.add("I'm Spring MVC application");
-		messages.add("5.2.0 version by sep'19 ");
+		messages.add(String.format("%s version", SpringVersion.getVersion()));
 		model.addAttribute("messages", messages);
 		return "index";
 	}
