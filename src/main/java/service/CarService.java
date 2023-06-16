@@ -1,11 +1,14 @@
 package service;
 
 import model.Car;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
+@Component
 public class CarService {
-    private static List<Car> carList = new ArrayList<>();
+    private static final List<Car> carList = new ArrayList<>();
 
     static {
         carList.add(new Car("bmw", "m5", (short) 530));
@@ -16,10 +19,6 @@ public class CarService {
     }
 
     public List<Car> getCarsListByCount(int count) {
-        try {
-            return carList.subList(0, count);
-        } catch (IndexOutOfBoundsException e) {
-            return carList;
-        }
+        return carList.stream().limit(count).toList();
     }
 }
